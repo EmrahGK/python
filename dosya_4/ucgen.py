@@ -43,16 +43,26 @@ while True:
         bir = int(input("Birinci kenarı gir: "))
         iki = int(input("İkinci kenarı gir: "))
         uc =  int(input("Üçüncü kenarı gir: "))
+
+        def ucgen(bir,iki,uc):
+            if(bir == iki and bir == uc):
+                print("bu şekil bir eşkenar üçgendir.")
+            if(bir == iki or iki == uc or bir == uc):
+                print("bu şekil bir ikizkenar üçgendir")
+            else:
+                print("bu şekil sıradan bir üçgendir")
         
         if(abs(iki-uc) < bir < iki + uc):
-            print("Kenarlarını girdiğiniz şekil bir üçgen belirtmektedir..")
+            print("Kenarlarını girdiğiniz şekil üçgen belirtmektedir ve")
             break
         if(abs(bir-uc) < iki < bir + uc):
-            print("Kenarlarını girdiğiniz şekil bir üçgen belirtmektedir..")
+            print("Kenarlarını girdiğiniz şekil üçgen belirtmektedir ve")
             break
         if(abs(bir-iki) < uc < bir + iki):
-            print("Kenarlarını girdiğiniz şekil bir üçgen belirtmektedir..")
+            print("Kenarlarını girdiğiniz şekil üçgen belirtmektedir ve",ucgen(bir,iki,uc))
             break
+        else:
+            print("Kenarlarını girdiğiniz şekil üçgen belirtmemektedir, tekrar deneyin")
         
     if(soru == "q"):
         break
