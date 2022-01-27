@@ -43,8 +43,8 @@ while True:
 
     islem = str(input("İşlemi girin(1-4): "))
 
-    #yarın if durumlarını ayarlayacağım. hata vermemesi için şimdilik sadece işlemi yazdırıyorlar. (27.01.2022)
-    
+    #önemli not: yarın if durumlarını ayarlayacağım. hata vermemesi için şimdilik sadece işlemi yazdırıyorlar. (27.01.2022)
+
     if islem == "1":
         print(islem)
     elif islem == "2":
