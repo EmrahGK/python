@@ -120,7 +120,7 @@ while True:
 
         metin = str(input("Şifresi bilinmeyen metni girin: "))
 
-        print("Bu üç metinden biri muhtemelen anlamlı olacaktır. \n")
+        print("\nBu üç metinden biri muhtemelen anlamlı olacaktır. \n")
         print("\n\nBirinci metin: ",coz_1())
         print("\nİkinci metin: ",coz_2())
         print("\nÜçüncü metin: ",coz_3())
