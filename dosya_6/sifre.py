@@ -1,7 +1,3 @@
-
-from distutils.util import check_environ
-
-
 print("""
 --⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽--⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽-
 --⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽--⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽-
@@ -19,8 +15,8 @@ print("""
 
 """)
 
-normal = "abcçdefgğhıijklmnoöprsştuüvyz"
-encrypted = "bcçdefgğhıijklmnoöprsştuüvyza"
+normal = "abcçdefgğhıijklmnoöprsştuüvyz0123456789"
+encrypted = "bcçdefgğhıijklmnoöprsştuüvyza1234567890"
 
 cevir = str.maketrans(normal,encrypted)
 coz = str.maketrans(encrypted,normal)
@@ -37,3 +33,6 @@ while True:
     elif(islem == "2"):
         metin = str(input("Şifresinin çözülmesini istediğiniz metni girin: "))
         print("Şifrelenmiş metin: ",metin.translate(coz))
+
+
+        

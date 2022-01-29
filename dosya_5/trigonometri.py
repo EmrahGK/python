@@ -1,13 +1,16 @@
 #Trigonometri hesapalama aracı (Bunu yapmam biraz zor olacak çünkü trigonometre bilmiyorum sayılır xd)
+import os 
 
+os.system('cmd /c "color b"')
 
 print("""
---⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽--⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽-
+----------------------------------------
 
-                _/﹋\_
-                (҂`_')
-                <,︻╦╤─ ҉* _ _ 
-                _/﹋\_
+                  _
+                _/ \_
+                ('_')
+                <,_-╦╤─ * _ _ 
+                _/ \_
 
         Trigonometri hesaplama aracı
           (çıkmak için q'ya basın.)
@@ -19,25 +22,26 @@ print("""
             4.Kotanjant
 
 
+    (α için;)
                       /|
                      / |
                     /  |
                    /   |
                   /    |   
-     HİPOTENÜS   /     | KARŞI
+   -HİPOTENÜS-   /     | -KARŞI-
                 /      |
                /       |
               /        |
              /         |
-            /\'α'       |
-            ⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺
-               KOMŞU
+            / 'α'      |
+           /_\_________|
+               
+               -KOMŞU-
 
---⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽--⎻⎺⎺⎻--⎽__⎽-⎻⎺⎺⎻-⎽__⎽-
+----------------------------------------
 """)
 
 global a,b,c
-
 def kosinus(a,b,c):
     return c / a
 
@@ -63,7 +67,6 @@ while True:
     karsi = int(input("Karşı kenarı girin: "))
     komsu = int(input("Komşu kenarı girin: "))
 
-    #önemli not: yarın if durumlarını ayarlayacağım. hata vermemesi için şimdilik sadece işlemi yazdırıyorlar. (27.01.2022)
 
     if(islem == "1"):
         #Kosinüs işlemi
@@ -93,8 +96,9 @@ while True:
             break
         print("Kotanjant(α) = ",kotanjant(hipotenus,karsi,komsu))
 
-
+    elif(not islem =="1" or islem == "2" or islem=="3" or islem=="4"):
+        print("\nGeçersiz bir işlem girdiniz..\n\n(İşlem {} olamaz.)".format(islem))
+        
     else:
-        print("\nLütfen geçerli bir işlem giriniz..")
-
+        print("\nLütfen bir işlem giriniz..")
 
