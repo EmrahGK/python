@@ -1,4 +1,7 @@
+import abc
 import os as pc
+from re import S
+from telnetlib import TM
 import time
 
 pc.system('cmd /c "color b"')
@@ -22,114 +25,77 @@ _______________________________________________
 ______________________________________________
 """)
 
-global metin
+global metin, volkan_konak
+
+def rotate(alfabe,d):
+    Lfirst = alfabe[0 : d] 
+    Lsecond = alfabe[d :] 
+    return Lsecond + Lfirst
+
+def sifrele(yazi, d):
+    return yazi.translate(str.maketrans(normal, rotate(normal, d)))
+
+def sifreyi_coz(yazi, d):
+  return yazi.translate(str.maketrans(rotate(normal, d), normal))
 
 normal = "ABCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz0123456789!'^+%&/()=?_"
+#80 karakter uzunluğunda: print(len(normal))
 
-#tek harfli şifreleme kısmı
-encrypted1 = "BCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZAbcçdefgğhıijklmnoöprsştuüvyza1234567890'^+%&/()=?_!"
-sifrele1 = str.maketrans(normal,encrypted1)
-coz1 = str.maketrans(encrypted1,normal)
-
-#iki harfli şifreleme kısmı
-encrypted2 = "CÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZABcçdefgğhıijklmnoöprsştuüvyzab2345678901^+%&/()=?_!'"
-sifrele2 = str.maketrans(normal,encrypted2)
-coz2 = str.maketrans(encrypted2,normal)
-
-#üç harfli şifreleme kısmı
-encrypted3 = "ÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZABCçdefgğhıijklmnoöprsştuüvyzabc3456789012+%&/()=?_!'^" 
-sifrele3 = str.maketrans(normal,encrypted3)
-coz3 = str.maketrans(encrypted3,normal)
-
-#şifreleme fonksiyonları
-def sifrele_1():
-    return metin.translate(sifrele1)
-def sifrele_2():
-    return metin.translate(sifrele2)
-def sifrele_3():
-    return metin.translate(sifrele3)
-
-#şifreyi çözme fonksiyonları
-def coz_1():
-    return metin.translate(coz1)
-def coz_2():
-    return metin.translate(coz2)
-def coz_3():
-    return metin.translate(coz3)
-       
 
 while True:
     
-    soru = str(input("\nKaç harfli şifreleme yapmak istiyorsunuz (1-3): "))
-    if(soru == "1"):
-        #tek harfli şifreleme
-        soru2 = str(input("\nİşlemi girin(1-2): "))
-        if(soru2 == "1"):
-            metin = str(input("\n\nŞifrelenecek metni girin: "))
-            time.sleep(0.5)
-            print("\nTek harfli olarak şifrelenmiş metin: ",sifrele_1())
-        elif(soru2 == "2"):
-            metin = str(input("\n\nŞifresi çözülecek metni girin: "))
-            time.sleep(0.5)
-            print("\nTek harfli şifrenin çözülmüş hali: ",coz_1)
-        elif(soru2 == "q"):
-            print("\nAna menüye yönlendiriliyorsunuz..")
-            time.sleep(0.5)
-            continue
-        else:
-            print("\nGeçerli bir işlem girin(1-2). İşlem '{}' olamaz".format(soru2))
-            continue
-    elif(soru == "2"):
-        #iki harfli şifreleme
-        soru2 = str(input("\nİşlemi girin(1-2): "))
-        if(soru2 == "1"):
-            metin = str(input("\n\nŞifrelenecek metni girin: "))
-            time.sleep(0.5)
-            print("\nİki harfli olarak şifrelenmiş metin: ",sifrele_2())
-        elif(soru2 == "2"):
-            metin = str(input("\n\nŞifresi çözülecek metni girin: "))
-            time.sleep(0.5)
-            print("\nTek harfli şifrenin çözülmüş hali: ",coz_2)
-        elif(soru2 == "q"):
-            print("\nAna menüye yönlendiriliyorsunuz..")
-            time.sleep(0.5)
-            continue
-        else:
-            print("\nGeçerli bir işlem girin(1-2). İşlem '{}' olamaz".format(soru2))
-            continue
-    elif(soru == "3"):
-        #üç harfli şifreleme
-        soru2 = str(input("\nİşlemi girin(1-2): "))
-        if(soru2 == "1"):
-            metin = str(input("\n\nŞifrelenecek metni girin: "))
-            time.sleep(0.5)
-            print("\nİki harfli olarak şifrelenmiş metin: ",sifrele_3())
-        elif(soru2 == "2"):
-            metin = str(input("\n\nŞifresi çözülecek metni girin: "))
-            time.sleep(0.5)
-            print("\nTek harfli şifrenin çözülmüş hali: ",coz_3)
-        elif(soru2 == "q"):
-            print("\nAna menüye yönlendiriliyorsunuz..")
-            time.sleep(0.5)
-            continue
-        else:
-            print("\nGeçerli bir işlem girin(1-2). İşlem '{}' olamaz".format(soru2))
-            continue
-    elif(soru == "Sezar" or soru =="sezar" or soru == "Caezar" or soru == "caezar"):
+    sayi = input("\nKaç harfli şifreleme yapmak istiyorsunuz: ")
+
+    if(sayi == "Sezar" or sayi =="sezar" or sayi == "Caezar" or sayi == "caezar"):
+        time.sleep(0.5)
         print("\nSezar fonksiyonu, kaç harfli şifreleme yapıldığını bilmediğiniz durumlar içindir. \n\n")
-
+        sinir = range(0,80)
+        asd = 0
+        sayi_liste = []
         metin = str(input("Şifresi bilinmeyen metni girin: "))
-
-        print("\nBu üç metinden biri muhtemelen anlamlı olacaktır. \n")
-        print("\n\nBirinci metin: ",coz_1())
-        print("\nİkinci metin: ",coz_2())
-        print("\nÜçüncü metin: ",coz_3())
-        continue
-    elif(soru == "q"):
+        for i in sinir:
+            if(True):
+                sayi_liste.append(i)
+        while(not sayi_liste == []):
+            asd += 1
+            time.sleep(0.2)
+            print("\n{}. Metin: ".format(asd),sifreyi_coz(metin,asd))
+            if(asd >=81):
+                print("Ana menüye yönlendiriliyorsunuz..")
+                time.sleep(2)
+                break
+    elif(sayi == "q"):
         print("\nProgramdan çıkılıyor..")
         time.sleep(1)
-        break
-    else:
-        print("\nSadece 1 ve 3 arasında şifreleme yapabilirsiniz. İşlem '{}' olamaz".format(soru))
+        break 
+
+    try:
+        sayi = int(sayi)
+    except ValueError:
+        print("Lüfen bir 'sayı' girişi yapın..")
+        time.sleep(0.3)
+        print("Ana menüye yönlendiriliyorsunuz..")
+        time.sleep(0.8)
+        continue
     
-        
+    time.sleep(1)
+    soru = str(input("İşlemi girin(1-2): "))
+    
+    if(soru == "1"):
+        #şifreleme işlemi
+        time.sleep(0.5)
+        metin = str(input("Şifrelenmesini istediğiniz metni girin: "))
+        time.sleep(0.5)
+        print("{} harfli olarak şifrelenmiş metin: ".format(sayi),sifrele(metin,sayi))
+    
+    elif(soru == "2"):
+        #şifreyi çözme işlemi
+        time.sleep(0.5)
+        metin = str(input("Şifresinin çözülmesini istediğiniz metni girin."))
+        time.sleep(0.5)
+        print("{} harfli olarak şifresi çözülmüş metin: ".format(sayi),sifreyi_coz(metin,sayi))
+
+    else:
+        print("Ana menüye yönlendiriliyorsunuz..")
+        time.sleep(0.8)
+        continue

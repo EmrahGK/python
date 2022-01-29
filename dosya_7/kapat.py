@@ -76,3 +76,4 @@ while True:
     else:
         print("Hatalı bir işlem girdiniz. Tekrar deneyin..")
         time.sleep(0.5)
+
