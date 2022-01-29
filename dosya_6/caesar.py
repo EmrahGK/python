@@ -24,20 +24,20 @@ ______________________________________________
 
 global metin
 
-normal = "abcçdefgğhıijklmnoöprsştuüvyz0123456789"
+normal = "ABCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz0123456789!'^+%&/()=?_"
 
 #tek harfli şifreleme kısmı
-encrypted1 = "bcçdefgğhıijklmnoöprsştuüvyza1234567890"
+encrypted1 = "BCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZAbcçdefgğhıijklmnoöprsştuüvyza1234567890'^+%&/()=?_!"
 sifrele1 = str.maketrans(normal,encrypted1)
 coz1 = str.maketrans(encrypted1,normal)
 
 #iki harfli şifreleme kısmı
-encrypted2 = "cçdefgğhıijklmnoöprsştuüvyzab2345678901"
+encrypted2 = "CÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZABcçdefgğhıijklmnoöprsştuüvyzab2345678901^+%&/()=?_!'"
 sifrele2 = str.maketrans(normal,encrypted2)
 coz2 = str.maketrans(encrypted2,normal)
 
 #üç harfli şifreleme kısmı
-encrypted3 = "çdefgğhıijklmnoöprsştuüvyzabc3456789012" 
+encrypted3 = "ÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZABCçdefgğhıijklmnoöprsştuüvyzabc3456789012+%&/()=?_!'^" 
 sifrele3 = str.maketrans(normal,encrypted3)
 coz3 = str.maketrans(encrypted3,normal)
 
