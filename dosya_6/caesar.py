@@ -1,7 +1,4 @@
-import abc
 import os as pc
-from re import S
-from telnetlib import TM
 import time
 
 pc.system('cmd /c "color b"')
@@ -25,8 +22,6 @@ _______________________________________________
 ______________________________________________
 """)
 
-global metin, volkan_konak
-
 def rotate(alfabe,d):
     Lfirst = alfabe[0 : d] 
     Lsecond = alfabe[d :] 
@@ -41,8 +36,7 @@ def sifreyi_coz(yazi, d):
 normal = "ABCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz0123456789!'^+%&/()=?_"
 #80 karakter uzunluğunda: print(len(normal))
 
-
-while True:
+while(True):
     
     sayi = input("\nKaç harfli şifreleme yapmak istiyorsunuz: ")
 
@@ -53,9 +47,11 @@ while True:
         asd = 0
         sayi_liste = []
         metin = str(input("Şifresi bilinmeyen metni girin: "))
+        
         for i in sinir:
             if(True):
                 sayi_liste.append(i)
+                
         while(not sayi_liste == []):
             asd += 1
             time.sleep(0.2)
