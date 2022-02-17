@@ -3,8 +3,6 @@ function bilgilerigoster(su){
     console.log("su miktarı: ",su.mililitre)
     su.ph = 8
     console.log("suyun yeni ph değeri", su.ph);
-    
-
 }
 
 bilgilerigoster({
