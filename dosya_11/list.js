@@ -1,31 +1,23 @@
+const prompt = require("prompt-sync")({ sigint: true });
+
 
 let input_list = []
 
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-  })
-  
-ad = readline.question(`Ad: `, name => {
-    readline.close()
-    return ad
-})
+ad = prompt("Adın ne? ")
 
-soyad = readline.question(`Ad: `, name => {
-    readline.close()
-    return ad
-})
+soyad = prompt("Soyadını yuaz.. : ")
 
-yas = readline.question(`Ad: `, name => {
-    readline.close()
-    return ad
-})
+yas = prompt("Bu geçici dünyaya geldiğin yılı yazınız: ")
   
 function yazdir (liste){
-    text = 'Kullanıcının:\nAdı: ${ad}\nSoyadı: ${soyad}\nYaşı: ${yas}'
+    text = `Kullanıcının:
+    Adı: ${ad}\n
+    Soyadı: ${soyad}\n
+    Yaşı: ${yas}`
     console.log(text)
 }
-    
+
+yazdir();
 
 
 
