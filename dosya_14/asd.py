@@ -26,11 +26,6 @@ if(soru == "y" or soru == "Y"):
 elif(soru == "n" or soru == "n"):
     ad = input("Adınız: ")
     soyad = input("soyadınız: ")
-
+    
     isim_list.append(ad)
     soyisim_list.append(soyad)
-
-
-
-"""
-pr"""
