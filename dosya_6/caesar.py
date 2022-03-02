@@ -22,6 +22,7 @@ _______________________________________________
 ______________________________________________
 """)
 
+
 def rotate(alfabe,d):
     Lfirst = alfabe[0 : d] 
     Lsecond = alfabe[d :] 
@@ -33,7 +34,15 @@ def sifrele(yazi, d):
 def sifreyi_coz(yazi, d):
   return yazi.translate(str.maketrans(rotate(normal, d), normal))
 
-normal = "ABCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz0123456789!'^+%&/()=?_"
+def kucult(metin):
+    try:
+        metin = metin.lower()
+    except:
+        print("HATAAAAAAAA'!'!'!'!")
+        time.sleep(1)
+        
+
+normal = "abcçdefgğhıijklmnoöprsştuüvyz0123456789!'^+%&/()=?_"
 #80 karakter uzunluğunda: print(len(normal))
 
 while(True):
@@ -43,23 +52,31 @@ while(True):
     if(sayi == "Sezar" or sayi =="sezar" or sayi == "Caezar" or sayi == "caezar"):
         time.sleep(0.5)
         print("\nSezar fonksiyonu, kaç harfli şifreleme yapıldığını bilmediğiniz durumlar içindir. \n\n")
-        sinir = range(0,80)
+        sinir = range(0,51)
         asd = 0
         sayi_liste = []
         metin = str(input("Şifresi bilinmeyen metni girin: "))
         
+        try:
+            metin = metin.lower()
+        except:
+            print("HATAAAAAAAA'!'!'!'!")
+            time.sleep(1)
+            break
+
         for i in sinir:
             if(True):
                 sayi_liste.append(i)
                 
         while(not sayi_liste == []):
             asd += 1
-            time.sleep(0.2)
+            time.sleep(0.02)
             print("\n{}. Metin: ".format(asd),sifreyi_coz(metin,asd))
-            if(asd >=81):
+            if(asd >=50):
                 print("Ana menüye yönlendiriliyorsunuz..")
                 time.sleep(2)
                 break
+
     elif(sayi == "q"):
         print("\nProgramdan çıkılıyor..")
         time.sleep(1)
@@ -81,6 +98,7 @@ while(True):
         #şifreleme işlemi
         time.sleep(0.5)
         metin = str(input("Şifrelenmesini istediğiniz metni girin: "))
+        
         time.sleep(0.5)
         print("{} harfli olarak şifrelenmiş metin: ".format(sayi),sifrele(metin,sayi))
     

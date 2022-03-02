@@ -23,7 +23,7 @@ def yazdir(liste):
     Adı: {liste[0]}
 
     Soyadı: {liste[1]}
-
+,
     Yaşı: {liste[2]}
 
     """)
