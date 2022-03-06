@@ -21,9 +21,17 @@ def cikis(x):
         return True
     else:
         return False
+
 def veri_al():
     cursor.execute("Select * From kitaplık")
     liste = cursor.fetchall()        
     print(liste)
+
+def verileri_göster():
+    cursor.execute("Select * From kitaplık")
+    
+
+
+
 
 con.close()
