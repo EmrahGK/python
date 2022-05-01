@@ -29,6 +29,6 @@ while True:
             sleep(0.15)
             stdout.write(i[0])
             stdout.flush()
-            """print(i[0])"""
+            """not:print(i[0])"""
     sleep(5)
     break
