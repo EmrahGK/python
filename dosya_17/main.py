@@ -21,13 +21,31 @@ bu programın yazılış amacı, x sayısı için bu işlemleri yapacak bir algo
 """
 
 def status(sayi):
+
     kalan = sayi %2
     if(kalan == 0): #sayi çift ise
-        pass
+        return True
     elif(kalan==1): #sayi tek ise
-        pass
+        return False
     else:
         print("HATA!!!!")
+
+print("""
+___________________________________
+
+        COLLATZ PROBLEMİ
+    (çıkmak için q'ya basın)
+___________________________________
+
+""")
+
+
+while True:
+
+    sayı = input("Lütfen sayıyı girin.")
+
+    liste = []
+
 
 
 
