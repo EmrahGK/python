@@ -19,7 +19,7 @@ bu programın yazılış amacı, x sayısı için bu işlemleri yapacak bir algo
 şey, sayının çift mi tek mi olduğunu gösteren bir fonksiyon yazmak. gerisi beleş 
 
 """
-
+from sys import stdout
 def status(sayi):
 
     kalan = sayi %2
@@ -29,23 +29,46 @@ def status(sayi):
         return False
     else:
         print("HATA!!!!")
-
+def ekle(a,b):
+    return a.append(b)
+def bir_mi(a):
+    if(a == 1):
+        return True # sayı bir ise
+    else:
+        return False #sayı bir değil ise
 print("""
 ___________________________________
 
         COLLATZ PROBLEMİ
+        
     (çıkmak için q'ya basın)
 ___________________________________
 
 """)
 
-
 while True:
-
-    sayı = input("Lütfen sayıyı girin.")
-
+    sayı = input("\nLütfen bir sayı girin: ")
     liste = []
+    if(sayı == "q"):
+        print("\nProgramdan çıkılıyor..\n")
+        break
+    try:
+        sayı = int(sayı)
+    except:
+        print("\nLütfen bir 'sayı' girişi yapın.\n")
+        continue
+    ekle(liste,sayı)
+    while(not sayı == 1):
+        if(status(sayı)): #status çift ise true
+            sayı = int(sayı / 2)
+        else: #sayı tek ise
+            sayı = int((sayı*3) + 1) 
+        ekle(liste,sayı)
 
-
-
-
+    print("\nÇözüm kümesi: \n")
+    for i in liste:
+        i = str(i)
+        stdout.write(i)
+        stdout.write(",")
+        stdout.flush()
+    print("\n")
