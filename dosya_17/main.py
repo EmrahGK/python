@@ -31,11 +31,7 @@ def status(sayi):
         print("HATA!!!!")
 def ekle(a,b):
     return a.append(b)
-def bir_mi(a):
-    if(a == 1):
-        return True # sayı bir ise
-    else:
-        return False #sayı bir değil ise
+    
 print("""
 ___________________________________
 
