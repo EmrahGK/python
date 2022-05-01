@@ -21,7 +21,6 @@ bu programın yazılış amacı, x sayısı için bu işlemleri yapacak bir algo
 """
 from sys import stdout
 def status(sayi):
-
     kalan = sayi %2
     if(kalan == 0): #sayi çift ise
         return True
@@ -31,7 +30,7 @@ def status(sayi):
         print("HATA!!!!")
 def ekle(a,b):
     return a.append(b)
-    
+
 print("""
 ___________________________________
 
